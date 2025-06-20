@@ -1,0 +1,13 @@
+# Dependencias para Image to PDF Converter Pro y Py-Builder Studio
+
+# Librería principal para la interfaz gráfica
+PySide6
+
+# Para el manejo y procesamiento de imágenes (en el conversor de PDF)
+Pillow
+
+# Para aplicar temas profesionales y modernos a la interfaz
+qt-material
+
+# Necesario para el "Py-Builder Studio" para empaquetar los scripts
+pyinstaller
