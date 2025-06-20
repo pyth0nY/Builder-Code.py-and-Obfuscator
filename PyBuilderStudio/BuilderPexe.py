@@ -1,5 +1,3 @@
-# Contenido COMPLETO y FINAL para: BuilderPexe.py
-
 import sys
 from PySide6.QtWidgets import QApplication
 from qt_material import apply_stylesheet
