@@ -1,4 +1,4 @@
-# Dependencias para Image to PDF Converter Pro y Py-Builder Studio
+
 
 # Librería principal para la interfaz gráfica
 PySide6
