@@ -1,5 +1,3 @@
-# Contenido COMPLETO Y CORREGIDO FINAL para: ui/obfuscation_widget.py
-
 from PySide6.QtWidgets import (
     QWidget, QVBoxLayout, QGroupBox, QCheckBox, QLabel, 
     QComboBox, QStackedWidget, QFormLayout, QSpinBox,
