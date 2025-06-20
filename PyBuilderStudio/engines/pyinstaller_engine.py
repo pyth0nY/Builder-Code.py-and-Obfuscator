@@ -1,4 +1,3 @@
-# Contenido para: engines/pyinstaller_engine.py
 import os
 from pathlib import Path
 
