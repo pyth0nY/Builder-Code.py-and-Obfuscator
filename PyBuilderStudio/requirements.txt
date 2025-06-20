@@ -1,13 +1,17 @@
+# Dependencias para Py-Builder Studio
+#-------Ejecuta esto en tu terminal para instalar todas las dependencias pip install -r requirements.txt----
+# Framework para la interfaz gráfica de usuario (GUI)
+pyside6
 
-
-# Librería principal para la interfaz gráfica
-PySide6
-
-# Para el manejo y procesamiento de imágenes (en el conversor de PDF)
-Pillow
-
-# Para aplicar temas profesionales y modernos a la interfaz
+# Tema visual para la interfaz gráfica
 qt-material
 
-# Necesario para el "Py-Builder Studio" para empaquetar los scripts
+# Motor para empaquetar los scripts en un ejecutable (.exe)
 pyinstaller
+
+# Motor opcional para la ofuscación de bytecode
+pyarmor
+
+# Librería para "des-parsear" un árbol AST a código Python,
+# usada por el ofuscador personalizado (PyFuscator)
+astunparse
