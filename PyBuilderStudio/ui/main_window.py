@@ -1,4 +1,4 @@
-# Contenido COMPLETO y ESTABLE para: ui/main_window.py
+
 
 import sys, os, subprocess, json, shutil
 from pathlib import Path
