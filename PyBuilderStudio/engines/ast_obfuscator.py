@@ -1,5 +1,3 @@
-# Contenido COMPLETO para: engines/ast_obfuscator.py
-
 import ast
 import astunparse 
 import random
