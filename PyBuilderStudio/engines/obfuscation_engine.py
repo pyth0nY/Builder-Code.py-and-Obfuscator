@@ -1,16 +1,10 @@
-# Contenido COMPLETO Y CORREGIDO para: engines/obfuscation_engine.py
-
 import os
 import subprocess
 import shutil
 from pathlib import Path
-
-# La importación puede fallar si el archivo no está, así que lo envolvemos en un try-except
 try:
     from .ast_obfuscator import PyObfuscator
 except ImportError:
-    # Si el archivo del ofuscador del amigo no está, creamos una clase vacía
-    # para que la app no se rompa, solo se mostrará una advertencia.
     class PyObfuscator:
         def __init__(self, **kwargs): pass
         def obfuscate_file(self, *args):
@@ -27,7 +21,7 @@ def obfuscate_with_pyarmor(script_path: str, output_path: str, options: dict) ->
         "--output", temp_obfuscated_dir,
     ]
     
-    # Añadir opciones desde la UI
+
     obf_code = options.get("pyarmor_obf_code", 1)
     obf_mod = options.get("pyarmor_obf_mod", 1)
     add_restrict = options.get("pyarmor_add_restrict", False)
@@ -62,7 +56,7 @@ def obfuscate_with_ast_tool(script_path: str, output_path: str, options: dict) -
         
     output_file_path = os.path.join(temp_obfuscated_dir, f"obfuscated_{Path(script_path).name}")
     
-    # Mapea las opciones de la UI a las que espera PyObfuscator
+
     ast_options = {key.replace('ast_', ''): val for key, val in options.items() if key.startswith('ast_')}
 
     try:
@@ -84,6 +78,6 @@ def run_obfuscator(script_path: str, output_path: str, options: dict) -> str:
     elif engine_name == "pyfuscator":
         return obfuscate_with_ast_tool(script_path, output_path, options)
     else:
-        # Si el motor es desconocido, no hacemos nada y devolvemos la ruta original.
+
         print(f"Advertencia: Motor de ofuscación desconocido: '{engine_name}'. Se omitirá la ofuscación.")
         return script_path
