@@ -1,19 +1,36 @@
 import sys
 from PySide6.QtWidgets import QApplication
-from qt_material import apply_stylesheet
-from ui.main_window import PyBuilderStudio
+from ui.splash_screen import ModernSplashScreen, LoadingThread
+from ui.main_window import PyBuilderStudio 
+
+main_window = None
+
+def show_main_window(splash):
+    """Cierra el splash y muestra la ventana principal"""
+    global main_window
+    splash.close()
+    main_window = PyBuilderStudio()
+    main_window.show()
 
 def main():
-    """Punto de entrada principal para la aplicación."""
     app = QApplication(sys.argv)
     
-    try:
-        apply_stylesheet(app, theme='dark_cyan.xml')
-    except Exception as e:
-        print(f"Advertencia: No se pudo aplicar el tema qt-material: {e}")
-
-    window = PyBuilderStudio()
-    window.show()
+    
+    splash = ModernSplashScreen()
+    splash.show()
+    
+    
+    loader = LoadingThread()
+    
+     
+    
+    loader.progress.connect(splash.update_progress)
+    loader.status.connect(splash.update_status)
+    
+    
+    loader.finished.connect(lambda: show_main_window(splash))
+    
+    loader.start()
     
     sys.exit(app.exec())
 
