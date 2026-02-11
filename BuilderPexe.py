@@ -1,8 +1,11 @@
 import sys
 from PySide6.QtWidgets import QApplication
 from ui.splash_screen import ModernSplashScreen, LoadingThread
+  
+  
 from ui.main_window import PyBuilderStudio 
 
+ 
 main_window = None
 
 def show_main_window(splash):
@@ -15,19 +18,18 @@ def show_main_window(splash):
 def main():
     app = QApplication(sys.argv)
     
-    
+   
     splash = ModernSplashScreen()
     splash.show()
     
     
     loader = LoadingThread()
     
-     
-    
+   
     loader.progress.connect(splash.update_progress)
     loader.status.connect(splash.update_status)
     
-    
+   
     loader.finished.connect(lambda: show_main_window(splash))
     
     loader.start()
